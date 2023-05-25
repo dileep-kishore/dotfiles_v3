@@ -1,0 +1,34 @@
+# vim:ft=gitconfig
+
+[user]
+    email = k.dileep1994@gmail.com
+    name = Dileep Kishore
+[core]
+    editor = nvim
+[credential]
+    helper = cache --timeout 18000
+[merge]
+    tool = nvimdiff
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[core]
+    pager = delta
+[delta]
+    features = side-by-side line-numbers decorations
+    width = 200
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
+[pull]
+    rebase = false
+[github]
+    user = dileep-kishore
+[init]
+    defaultBranch = main
