@@ -16,6 +16,11 @@ if [ -n "${ZSH_VERSION-}" ]; then
  }
 fi
 
+cht() {
+    eval "$(navi widget zsh | dos2unix)"
+    navi
+}
+
 # Display CSV file in a table in the terminal
 showcsv() { column -s, -t < "$1" | less -#2 -N -S; }
 
