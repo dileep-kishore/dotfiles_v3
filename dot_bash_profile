@@ -1,9 +1,21 @@
+# vim:ft=sh
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# export PATH="$HOME/.poetry/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
 command_not_found_handle() {
 # don't run if not in a container
   if [ ! -e /run/.containerenv ] && [ ! -e /.dockerenv ]; then
     exit 127
   fi
-  
+
   distrobox-host-exec "${@}"
 }
 if [ -n "${ZSH_VERSION-}" ]; then
