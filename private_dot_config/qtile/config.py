@@ -24,13 +24,21 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, widget
+import os
+import subprocess
+
+from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = "wezterm"
+
+@hook.subscribe.startup_once
+def autostart():
+    startup_script = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.Popen([startup_script])
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -70,9 +78,9 @@ keys = [
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "x", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod, "shift"], "n", lazy.prev_screen(), desc="Previous screen"),
-    Key([mod, "shift"], "p", lazy.next_screen(), desc="Next screen"),
+    Key([mod], "r", lazy.spawn("bash ~/.config/rofi/launcher.sh", shell=True), desc="Spawn rofi"),
+    Key([mod], "n", lazy.prev_screen(), desc="Previous screen"),
+    Key([mod], "p", lazy.next_screen(), desc="Next screen"),
 ]
 
 groups = [Group(i) for i in "123456789"]
