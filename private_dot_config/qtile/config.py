@@ -83,7 +83,7 @@ keys = [
     Key([mod], "p", lazy.next_screen(), desc="Next screen"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i, label=j) for i, j in zip(["1","2", "3", "4", "5", "6", "7", "8" ,"9"], ["  ", "  ", "  ", "  ", " 󰍪 ", "  ", "  ", "  ", "  "])]
 
 for i in groups:
     keys.extend(
@@ -110,8 +110,8 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    layout.Columns(border_focus="#5b3e78", border_normal="#1F1F28", border_on_single=True, margin=4, margin_on_single=4, border_width=4),
+    layout.Max(margin=4, margin_on_single=4),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -126,63 +126,69 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    font="CaskaydiaCove Nerd Font",
+    fontsize=20,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
+                widget.GroupBox(highlight_method="block"),
+                widget.TaskList(fontsize=12, highlight_method="block"),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.QuickExit(fontsize=15),
+                widget.CurrentLayout(fontsize=15),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            margin=2,
         ),
     ),
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
+                widget.GroupBox(highlight_method="block"),
+                widget.TaskList(fontsize=12, highlight_method="block"),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.QuickExit(fontsize=15),
+                widget.CurrentLayout(fontsize=15),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            margin=2,
+        ),
+    ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(highlight_method="block"),
+                widget.TaskList(fontsize=12, highlight_method="block"),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p", fontsize=15),
+                widget.QuickExit(fontsize=15),
+                widget.CurrentLayout(fontsize=15),
+            ],
+            24,
+            margin=2,
         ),
     ),
 ]
