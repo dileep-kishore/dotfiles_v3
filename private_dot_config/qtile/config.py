@@ -40,6 +40,14 @@ def autostart():
     startup_script = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([startup_script])
 
+colors = {
+    "focus": "#bb9af7",
+    "active": "#7dcfff",
+    "bg": "#1a1b26",
+    "inactive": "#565f89",
+    "urgent": "#f7768e",
+}
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -110,8 +118,8 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus="#5b3e78", border_normal="#1F1F28", border_on_single=True, margin=4, margin_on_single=4, border_width=4),
-    layout.Max(margin=4, margin_on_single=4),
+    layout.Columns(border_focus=colors["focus"], border_normal=colors["bg"], border_on_single=True, margin=5, margin_on_single=5, border_width=4),
+    layout.Max(margin=0, margin_on_single=0),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -132,61 +140,181 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+left = ""
+right = ""
+
+my_widgets_1 = [
+    widget.WindowName(
+        font="Noto Sans Bold",
+        fontsize=12,
+        foreground=colors["focus"],
+        background=colors["bg"],
+        width=bar.CALCULATED,
+        empty_group_string="Desktop",
+        max_chars=80,
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.GroupBox(
+        fontsize=18,
+        margin_y=2,
+        margin_x=0,
+        padding_y=6,
+        padding_x=4,
+        disable_drag=True,
+        use_mouse_wheel=True,
+        active=colors["active"],
+        inactive=colors["inactive"],
+        # rounded=True,
+        highlight_method="line",
+        block_highlight_text_color=colors["active"],
+        this_current_screen_border=colors["focus"],
+        this_screen_border=colors["active"],
+        other_current_screen_border=colors["active"],
+        other_screen_border=colors["bg"],
+        foreground=colors["focus"],
+        background=colors["bg"],
+        urgent_border=colors["urgent"],
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.Clock(
+        font="Noto Sans Bold",
+        foreground=colors["active"],
+        background=colors["bg"],
+        fontsize=12,
+        format=" %a-%d | %H:%M ",
+    ),
+    widget.CurrentLayoutIcon(
+        foreground=colors["focus"], background=colors["bg"], scale=0.75
+    ),
+]
+
+my_widgets_2 = [
+    widget.WindowName(
+        font="Noto Sans Bold",
+        fontsize=12,
+        foreground=colors["focus"],
+        background=colors["bg"],
+        width=bar.CALCULATED,
+        empty_group_string="Desktop",
+        max_chars=80,
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.GroupBox(
+        fontsize=18,
+        margin_y=2,
+        margin_x=0,
+        padding_y=6,
+        padding_x=4,
+        disable_drag=True,
+        use_mouse_wheel=True,
+        active=colors["active"],
+        inactive=colors["inactive"],
+        # rounded=True,
+        highlight_method="line",
+        block_highlight_text_color=colors["active"],
+        this_current_screen_border=colors["focus"],
+        this_screen_border=colors["active"],
+        other_current_screen_border=colors["active"],
+        other_screen_border=colors["bg"],
+        foreground=colors["focus"],
+        background=colors["bg"],
+        urgent_border=colors["urgent"],
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.Clock(
+        font="Noto Sans Bold",
+        foreground=colors["active"],
+        background=colors["bg"],
+        fontsize=12,
+        format=" %a-%d | %H:%M ",
+    ),
+    widget.CurrentLayoutIcon(
+        foreground=colors["focus"], background=colors["bg"], scale=0.75
+    ),
+]
+
+my_widgets_3 = [
+    widget.WindowName(
+        font="Noto Sans Bold",
+        fontsize=12,
+        foreground=colors["focus"],
+        background=colors["bg"],
+        width=bar.CALCULATED,
+        empty_group_string="Desktop",
+        max_chars=80,
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.GroupBox(
+        fontsize=18,
+        margin_y=2,
+        margin_x=0,
+        padding_y=6,
+        padding_x=4,
+        disable_drag=True,
+        use_mouse_wheel=True,
+        active=colors["active"],
+        inactive=colors["inactive"],
+        # rounded=True,
+        highlight_method="line",
+        block_highlight_text_color=colors["active"],
+        this_current_screen_border=colors["focus"],
+        this_screen_border=colors["active"],
+        other_current_screen_border=colors["active"],
+        other_screen_border=colors["bg"],
+        foreground=colors["focus"],
+        background=colors["bg"],
+        urgent_border=colors["urgent"],
+    ),
+    widget.Spacer(
+        background=colors["bg"],
+        # length=20,
+    ),
+    widget.Clock(
+        font="Noto Sans Bold",
+        foreground=colors["active"],
+        background=colors["bg"],
+        fontsize=12,
+        format=" %a-%d | %H:%M ",
+    ),
+    widget.CurrentLayoutIcon(
+        foreground=colors["focus"], background=colors["bg"], scale=0.75
+    ),
+]
+
+
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.GroupBox(highlight_method="block"),
-                widget.TaskList(fontsize=12, highlight_method="block"),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.QuickExit(fontsize=15),
-                widget.CurrentLayout(fontsize=15),
-            ],
+            my_widgets_1,
             24,
             margin=2,
         ),
     ),
     Screen(
         top=bar.Bar(
-            [
-                widget.GroupBox(highlight_method="block"),
-                widget.TaskList(fontsize=12, highlight_method="block"),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.QuickExit(fontsize=15),
-                widget.CurrentLayout(fontsize=15),
-            ],
+            my_widgets_2,
             24,
             margin=2,
         ),
     ),
     Screen(
         top=bar.Bar(
-            [
-                widget.GroupBox(highlight_method="block"),
-                widget.TaskList(fontsize=12, highlight_method="block"),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p", fontsize=15),
-                widget.QuickExit(fontsize=15),
-                widget.CurrentLayout(fontsize=15),
-            ],
+            my_widgets_3,
             24,
             margin=2,
         ),
