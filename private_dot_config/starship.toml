@@ -2,25 +2,25 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Catpuccin colors (mocha)
+# Catpuccin colors (mocha) -> Tokyo Night
 # thm_bg="#11111b"
-# thm_fg="#cdd6f4"
-# thm_cyan="#89dceb"
-# thm_black="#181825"
+# thm_fg="#cfc9c2"
+# thm_cyan="#73daca"
+# thm_black="#1a1b26"
 # thm_gray="#45475a"
-# thm_magenta="#cba6f7"
+# thm_magenta="#bb9af7"
 # thm_pink="#f5c2e7"
-# thm_red="#f38ba8"
-# thm_green="#a6e3a1"
-# thm_yellow="#f9e2af"
-# thm_blue="#89b4fa"
-# thm_orange="#fab387"
+# thm_red="#f7768e"
+# thm_green="#9ece6a"
+# thm_yellow="#e0af68"
+# thm_blue="#7aa2f7"
+# thm_orange="#ff9e64"
 # thm_black4="#585b70"
 # thm_base="#1e1e2e"
 
 format = """
-[┏](bold #89b4fa)\
-[  ](bold bg:#89b4fa fg:#181825)[](fg:#89b4fa)\
+[┏](bold #7aa2f7)\
+[ 󰌽 ](bold bg:#7aa2f7 fg:#1a1b26)[](fg:#7aa2f7)\
 $sudo\
 $username\
 $hostname\
@@ -60,32 +60,32 @@ symbol = " "
 style = "light gray"
 
 # right sep
-# "[](fg:#89dceb)"
+# "[](fg:#73daca)"
 # left sep
-# "[](fg:#89dceb)"
+# "[](fg:#73daca)"
 
 #### LEFT
 
 [sudo]
-format = "[](fg:#f38ba8)[$symbol]($style)[](fg:#f38ba8)"
+format = "[](fg:#f7768e)[$symbol]($style)[](fg:#f7768e)"
 symbol = " "
 disabled = false
-style = "bg:#f38ba8 fg:#181825"
+style = "bg:#f7768e fg:#1a1b26"
 
 [username]
 show_always = false
-format = "[](fg:#89dceb)[ $user]($style)"
-style_user = "bold bg:#89dceb fg:#181825"
-style_root = "bold bg:#f38ba8 fg:#181825"
+format = "[](fg:#73daca)[ $user]($style)"
+style_user = "bold bg:#73daca fg:#1a1b26"
+style_root = "bold bg:#f7768e fg:#1a1b26"
 
 [hostname]
-format =  "[  ](bg:#89dceb fg:#181825)[$hostname]($style)[](fg:#89dceb)"
-style = "bg:#89dceb fg:#181825"
+format =  "[  ](bg:#73daca fg:#1a1b26)[$hostname]($style)[](fg:#73daca)"
+style = "bg:#73daca fg:#1a1b26"
 
 [directory]
-format = "[](fg:#cba6f7)[$path]($style)[$read_only]($read_only_style)[](fg:#cba6f7)"
-style = "bold bg:#cba6f7 fg:#181825"
-read_only_style = "bold fg:#f38ba8 bg:#cba6f7"
+format = "[](fg:#bb9af7)[$path]($style)[$read_only]($read_only_style)[](fg:#bb9af7)"
+style = "bold bg:#bb9af7 fg:#1a1b26"
+read_only_style = "bold fg:#f7768e bg:#bb9af7"
 read_only = "  "
 home_symbol = " "
 truncation_symbol = " /"
@@ -98,139 +98,140 @@ truncate_to_repo = true
 "Pictures" = " "
 
 [git_branch]
-format = "[](fg:#a6e3a1)[$symbol$branch]($style)"
-style = "bold bg:#a6e3a1 fg:#181825"
+format = "[](fg:#9ece6a)[$symbol$branch]($style)"
+style = "bold bg:#9ece6a fg:#1a1b26"
 symbol = " "
 truncation_length = 25
 truncation_symbol = "…"
 
 [git_commit]
-format = '[](fg:#a6e3a1)[\($hash$tag\)]($style)'
+format = '[](fg:#9ece6a)[\($hash$tag\)]($style)'
 tag_disabled = false
 tag_symbol = " "
 only_detached = true
-style = "bold bg:#a6e3a1 fg:#181825"
+style = "bold bg:#9ece6a fg:#1a1b26"
 
 [git_state]
-style = "bold bg:#a6e3a1 fg:#181825"
+style = "bold bg:#9ece6a fg:#1a1b26"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))[](fg:#a6e3a1)'
-style = "bold bg:#a6e3a1 fg:#181825"
+format = '([\[$all_status$ahead_behind\]]($style))[](fg:#9ece6a)'
+style = "bold bg:#9ece6a fg:#1a1b26"
 
 [hg_branch]
-format = "[](fg:#a6e3a1)[$symbol$branch]($style)[](fg:#a6e3a1)"
-style = "bold bg:#a6e3a1 fg:#181825"
+format = "[](fg:#9ece6a)[$symbol$branch]($style)[](fg:#9ece6a)"
+style = "bold bg:#9ece6a fg:#1a1b26"
 
 
 #### RIGHT
 
 [time]
-format = "[](fg:#89b4fa)[ $time ]($style)"
+format = "[](fg:#7aa2f7)[ $time ]($style)"
 disabled = false
 time_format = "%R"
-style = "bold bg:#89b4fa fg:#181825"
+style = "bold bg:#7aa2f7 fg:#1a1b26"
 
 [status]
 disabled = false
-format = "[](fg:#f38ba8)[$status$symbol]($style)[](fg:#f38ba8)"
+format = "[](fg:#f7768e)[$status$symbol]($style)[](fg:#f7768e)"
 symbol = " "
 not_executable_symbol = " "
-style = "bold bg:#f38ba8 fg:#181825"
+style = "bold bg:#f7768e fg:#1a1b26"
 
 [shlvl]
 disabled = false
-format = "[](fg:#cdd6f4)[$symbol$shlvl]($style)($style)[](fg:#cdd6f4)"
+format = "[](fg:#cfc9c2)[$symbol$shlvl]($style)($style)[](fg:#cfc9c2)"
 symbol = " "
-style = "bold bg:#cdd6f4 fg:#181825"
+style = "bold bg:#cfc9c2 fg:#1a1b26"
 threshold = 3
 
 [jobs]
-format = "[](fg:#f9e2af)[$symbol$number]($style)[](fg:#f9e2af)"
+format = "[](fg:#e0af68)[$symbol$number]($style)[](fg:#e0af68)"
 number_threshold = 2
-style = "bold bg:#f9e2af fg:#181825"
+style = "bold bg:#e0af68 fg:#1a1b26"
 symbol = " "
 
 [cmd_duration]
-format = "[](fg:#f9e2af)[ $duration]($style)[](fg:#f9e2af)"
+format = "[](fg:#e0af68)[ $duration]($style)[](fg:#e0af68)"
 min_time = 5_000
-style = "bold bg:#f9e2af fg:#181825"
+style = "bold bg:#e0af68 fg:#1a1b26"
 
 [memory_usage]
-format = "[](fg:#f38ba8)[$symbol$ram]($style)[](fg:#f38ba8)"
+format = "[](fg:#f7768e)[$symbol$ram]($style)[](fg:#f7768e)"
 threshold = 80
 symbol = " "
 disabled = false
-style = "bold bg:#f38ba8 fg:#181825"
+style = "bold bg:#f7768e fg:#1a1b26"
 
 [conda]
-format = "[](fg:#89dceb)[$symbol$environment]($style)[](fg:#89dceb)"
+format = "[](fg:#73daca)[$symbol$environment]($style)[](fg:#73daca)"
 symbol = " "
-style = "bold bg:#89dceb fg:#181825"
+style = "bold bg:#73daca fg:#1a1b26"
 
 [nix_shell]
-format = '[](fg:#89dceb)[$symbol$state( \($name\))]($style)[](fg:#89dceb)'
+format = '[](fg:#73daca)[$symbol$state( \($name\))]($style)[](fg:#73daca)'
 symbol = " "
-style = "bold bg:#89dceb fg:#181825"
+style = "bold bg:#73daca fg:#1a1b26"
 
 [rust]
-format = "[](fg:#f38ba8)[$symbol$version]($style)[](fg:#f38ba8)"
+format = "[](fg:#f7768e)[$symbol$version]($style)[](fg:#f7768e)"
 symbol = " "
-style = "bold bg:#f38ba8 fg:#181825"
+style = "bold bg:#f7768e fg:#1a1b26"
 
 [lua]
-format = "[](fg:#89b4fa)[$symbol$version]($style)[](fg:#89b4fa)"
+format = "[](fg:#7aa2f7)[$symbol$version]($style)[](fg:#7aa2f7)"
 symbol = " "
-style = "bold bg:#89b4fa fg:#181825"
+style = "bold bg:#7aa2f7 fg:#1a1b26"
 
 [python]
-format = '[](fg:#f9e2af)[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)[](fg:#f9e2af)'
+format = '[](fg:#e0af68)[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)[](fg:#e0af68)'
 symbol = " "
-style = "bold bg:#f9e2af fg:#181825"
+style = "bold bg:#e0af68 fg:#1a1b26"
 
 [rlang]
-format = "[](fg:#89b4fa)[$symbol($version)]($style)[](fg:#89b4fa)"
+format = "[](fg:#7aa2f7)[$symbol($version)]($style)[](fg:#7aa2f7)"
 symbol = "ℛ "
-style = "bold bg:#89b4fa fg:#181825"
+style = "bold bg:#7aa2f7 fg:#1a1b26"
 
 [nodejs]
-format = "[](fg:#a6e3a1)[$symbol$version]($style)[](fg:#a6e3a1)"
-style = "bold bg:#a6e3a1 fg:#181825"
-not_capable_style = "bold bg:#f38ba8 fg:#181825"
+format = "[](fg:#9ece6a)[$symbol$version]($style)[](fg:#9ece6a)"
+style = "bold bg:#9ece6a fg:#1a1b26"
+not_capable_style = "bold bg:#f7768e fg:#1a1b26"
 symbol = " "
 
 [julia]
-format = "[](fg:#cba6f7)[$symbol($version)]($style)[](fg:#cba6f7)"
+format = "[](fg:#bb9af7)[$symbol($version)]($style)[](fg:#bb9af7)"
 symbol = " "
-style = "bold bg:#cba6f7 fg:#181825"
+style = "bold bg:#bb9af7 fg:#1a1b26"
 
 [haskell]
-format = "[](fg:#cba6f7)[$symbol($version)]($style)[](fg:#cba6f7)"
+format = "[](fg:#bb9af7)[$symbol($version)]($style)[](fg:#bb9af7)"
 symbol = " "
-style = "bold bg:#cba6f7 fg:#181825"
+style = "bold bg:#bb9af7 fg:#1a1b26"
 
 [golang]
-format = "[](fg:#89dceb)[$symbol($version)]($style)[](fg:#89dceb)"
+format = "[](fg:#73daca)[$symbol($version)]($style)[](fg:#73daca)"
 symbol = " "
-style = "bold bg:#89dceb fg:#181825"
+style = "bold bg:#73daca fg:#1a1b26"
 
 [container]
-format = '[](fg:#cdd6f4)[$symbol \[$name\]]($style)[](fg:#cdd6f4)'
-style = "bold bg:#cdd6f4 fg:#181825"
+format = '[](fg:#cfc9c2)[$symbol $name]($style)[](fg:#cfc9c2)'
+symbol = "󰡨"
+style = "bold bg:#cfc9c2 fg:#1a1b26"
 
 [docker_context]
-format = "[](fg:#89b4fa)[$symbol$context]($style)[](fg:#89b4fa)"
+format = "[](fg:#7aa2f7)[$symbol$context]($style)[](fg:#7aa2f7)"
 symbol = " "
-style = "bold bg:#89b4fa fg:#181825"
+style = "bold bg:#7aa2f7 fg:#1a1b26"
 
 [package]
-format = "[](fg:#fab387)[$symbol$version]($style)[](fg:#fab387)"
+format = "[](fg:#ff9e64)[$symbol$version]($style)[](fg:#ff9e64)"
 symbol = " "
-style = "bold bg:#fab387 fg:#181825"
+style = "bold bg:#ff9e64 fg:#1a1b26"
 display_private = true
 
 [character]
 format = "$symbol"
-success_symbol = "[┗━](bold #89b4fa)[ ](bold #89b4fa)"
+success_symbol = "[┗━](bold #7aa2f7)[ ](bold #7aa2f7)"
 error_symbol = "[┗━](bold red)[ ](bold red)"
-vicmd_symbol = "[┗━](bold #89b4fa)[ ](bold #89b4fa)"
+vicmd_symbol = "[┗━](bold #7aa2f7)[ ](bold #7aa2f7)"

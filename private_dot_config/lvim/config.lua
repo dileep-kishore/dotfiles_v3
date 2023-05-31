@@ -49,11 +49,21 @@ lvim.keys.insert_mode["jk"] = "<Esc>"
 -- plugins
 lvim.plugins = {
   {"catppuccin/nvim"},
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    {'NvChad/nvim-colorizer.lua'},
 }
 
 -- colorscheme
-lvim.colorscheme = "catppuccin-mocha"
+lvim.colorscheme = "tokyonight-night"
+lvim.builtin.lualine.options.theme = "tokyonight"
 
+-- colorizer
+require 'colorizer'.setup()
 
 ---- python stuff (https://github.com/LunarVim/starter.lvim/blob/python-ide/config.lua)
 -- setup formatting
