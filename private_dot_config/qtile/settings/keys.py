@@ -74,7 +74,7 @@ for ind, grp in enumerate(GROUPS):
             # mod1 + letter of group = switch to group
             Key(
                 [mod],
-                str(ind),
+                str(ind + 1),
                 lazy.group[grp.name].toscreen(),
                 desc="Switch to group {}".format(grp.name),
             ),
@@ -89,7 +89,7 @@ for ind, grp in enumerate(GROUPS):
             # # mod1 + shift + letter of group = move focused window to group
             Key(
                 [mod, "shift"],
-                str(ind),
+                str(ind + 1),
                 lazy.window.togroup(grp.name),
                 desc="move focused window to group {}".format(grp.name),
             ),
