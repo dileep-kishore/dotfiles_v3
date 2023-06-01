@@ -3,6 +3,9 @@
 # gitignore
 .gitignore
 
+# python
+__pycache__
+
 # Repository specific files
 README.md
 LICENSE
