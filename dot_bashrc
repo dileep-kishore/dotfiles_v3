@@ -2,3 +2,4 @@
 
 export PATH="$PATH:/home/g8k/.local/bin"
 export PATH="$PATH:/var/lib/flatpak/exports/bin"
+export PATH="$PATH:~/.console-ninja/.bin"

@@ -70,6 +70,9 @@ export NNN_FIFO=/tmp/nnn.fifo
 # zk notebook directory
 export ZK_NOTEBOOK_DIR="$HOME/Documents/Zettelkasten"
 
+# console-ninja
+export PATH="$PATH:$HOME/.console-ninja/.bin"
+
 
 ################################################################################
 # Zinit init                                                                   #
